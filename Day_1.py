@@ -19,3 +19,15 @@ sum = 0
 for i in comb_list:
     sum += abs(i[0]-i[1])
 print("PART 1 /// Sum of Differences in Distances: " + str(sum))
+
+# ////////////////// PART 2 //////////////////
+freq_list = [[i, lst2.count(i)] for i in lst1]
+sum = 0
+for i in freq_list:
+    sum += abs(i[0]*i[1])
+print("PART 2 /// Similarity Score: " + str(sum))
+
+
+
+
+
