@@ -28,8 +28,13 @@ def rule2(report):
 
 # Checks if rules for safety are met for each report in input
 safe_count = 0
+unsafe_reports = []
 for i in int_input:
     if rule1(i) is True and rule2(i) is True:
-        #print(i)
         safe_count += 1
+    else:
+        unsafe_reports.append(i)
 print("PART 1 /// Freq. of Safe Reports: " + str(safe_count))
+
+# ////////////////// PART 2 //////////////////
+
