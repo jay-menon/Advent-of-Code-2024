@@ -7,6 +7,29 @@ with open("d2_input.txt") as raw_input:
 split_levels = [i.split("\n") for i in raw_levels]
 str_input = [i[0].split(" ") for i in split_levels]
 int_input = [[int(j) for j in i] for i in str_input]
-print(int_input)
 
 # ////////////////// PART 1 //////////////////
+# Rule 1: Ascending/descending only rule // Rule 2: Gradual change rule
+def rule1(report):
+    level_copy = list(report)
+    level_copy.sort()
+    if report == level_copy or report == list(reversed(level_copy)):
+        return True
+    return False
+def rule2(report):
+    prev_level = report[0]
+    for i in report[1:]:
+        curr_level = i
+        diff = abs(prev_level - curr_level)
+        if diff < 1 or diff > 3:
+            return False
+        prev_level = i
+    return True
+
+# Checks if rules for safety are met for each report in input
+safe_count = 0
+for i in int_input:
+    if rule1(i) is True and rule2(i) is True:
+        #print(i)
+        safe_count += 1
+print("PART 1 /// Freq. of Safe Reports: " + str(safe_count))
