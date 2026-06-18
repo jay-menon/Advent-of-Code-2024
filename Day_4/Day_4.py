@@ -85,33 +85,3 @@ for pos in diag_pos_list:
     horz_pos = diag_to_horz_idx(pos, len(horz_nr_list))
     cross_mas_count += xmas_verifier(horz_pos,horz_nr_list)
 print("PART 2 /// Cross MAS Count: " + str(cross_mas_count))
-
-
-
-# test_horz= matrix = [
-#     ['a', 'b', 'c', 'd', 'e'],
-#     ['f', 'g', 'h', 'i', 'j'],
-#     ['k', 'l', 'm', 'n', 'o'],
-#     ['p', 'q', 'r', 's', 't'],
-#     ['u', 'v', 'w', 'x', 'y']
-# ]
-# test_diag = [
-#     'a',
-#     'fb',
-#     'kgc',
-#     'plhd',
-#     'uqmie',
-#     'vrnj',
-#     'wso',
-#     'xt',
-#     'y'
-# ]
-
-# test_idx = [6,1]
-# print(test_diag[test_idx[0]][test_idx[1]])
-# idx = diag_to_horz_idx(test_idx, 5)
-# print(idx)
-# print(test_horz[idx[0]][idx[1]])
-
-
-
