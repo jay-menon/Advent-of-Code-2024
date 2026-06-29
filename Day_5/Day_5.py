@@ -14,7 +14,7 @@ str_upd_list = [i.split(",") for i in strip_page_order[split_idx+1:]]
 def rule_finder(str_rule_list, str_update):
     rel_rule_list = []
     for rule in str_rule_list:
-        if str_update[0] in rule and str_update[1] in rule:
+        if rule[0] in str_update and rule[1] in str_update:
             rel_rule_list.append(rule)
     return rel_rule_list
 # Function tests if an inputted rule has been followed in an inputted update
@@ -23,7 +23,14 @@ def rule_tester(str_rule, str_update):
         return True
     return False
 
-# Function testing
-test_srl = [["1", "2"], ["4", "5"]]
-test_su = ["1","2","3"]
-print(rule_tester(test_srl[0],test_su))
+sum = 0
+for update in str_upd_list:
+    rule_broken = False
+    rel_rules = rule_finder(str_rule_list, update)
+    for rule in rel_rules:
+        if rule_tester(rule, update) is False:
+            rule_broken = True
+            break
+    if rule_broken is False:
+        sum += int(update[int((len(update)-1)/2)])
+print("Sum of Ordered Update Middle Nums: " + str(sum))
